@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34316.72
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RGCore", "RGCore.csproj", "{9597E10D-434A-4D41-BC09-682D36F6E295}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9597E10D-434A-4D41-BC09-682D36F6E295}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9597E10D-434A-4D41-BC09-682D36F6E295}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9597E10D-434A-4D41-BC09-682D36F6E295}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9597E10D-434A-4D41-BC09-682D36F6E295}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {59ED631C-280D-4FD5-8366-7DD75D5CC4F0}
+	EndGlobalSection
+EndGlobal
