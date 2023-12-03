@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "KRXbPLkW1ahZaCWpjja96Tkh6eT+9CMbPe7kcvlpNp2YUf8IQQkfMQFvnTyZEIYsbWmhanuXSpuI9B9kcD3mKQ==",
+  "dgSpecHash": "n+C1Q1n1xacAjLtB3Cz8LoNFiSQe7Ia+cHcXtVqY/FGPucppJjB9Xrahk7ACkMLOsRxG1nj4ucKsyne2rxFvbA==",
   "success": true,
-  "projectFilePath": "D:\\source\\RGCore\\RGCore.csproj",
+  "projectFilePath": "D:\\source\\RGCore.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\thanhlm1\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\8.0.0\\microsoft.extensions.dependencyinjection.8.0.0.nupkg.sha512",
-    "C:\\Users\\thanhlm1\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512"
+    "C:\\Users\\MinhThanh\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\8.0.0\\microsoft.extensions.dependencyinjection.8.0.0.nupkg.sha512",
+    "C:\\Users\\MinhThanh\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512"
   ],
   "logs": []
 }

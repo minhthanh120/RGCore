@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6ksesPUNWUNchQI4HtuGZFbvVAAXZr536CizAZDQyFs1gFY6NiA9Z0S/P5aCCFtKsKil6y4e0CyBIqnHCkbPvg==",
+  "dgSpecHash": "DBDNTUn+VQk0BfellJN7LK6thnVzBUOFhgiZVi1Yx/Tz3ACzzlhI1GWMaeqNDuZnhnAYR+oJz/OcjnE864DUQw==",
   "success": true,
-  "projectFilePath": "D:\\source\\RGCore\\src\\Abstraction\\Abstraction.csproj",
+  "projectFilePath": "D:\\source\\src\\Abstraction\\Abstraction.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

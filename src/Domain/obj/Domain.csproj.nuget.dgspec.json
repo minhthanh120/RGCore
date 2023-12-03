@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\source\\src\\Abstraction\\Abstraction.csproj": {}
+    "D:\\source\\src\\Domain\\Domain.csproj": {}
   },
   "projects": {
-    "D:\\source\\src\\Abstraction\\Abstraction.csproj": {
+    "D:\\source\\src\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\source\\src\\Abstraction\\Abstraction.csproj",
-        "projectName": "Abstraction",
-        "projectPath": "D:\\source\\src\\Abstraction\\Abstraction.csproj",
+        "projectUniqueName": "D:\\source\\src\\Domain\\Domain.csproj",
+        "projectName": "Domain",
+        "projectPath": "D:\\source\\src\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\MinhThanh\\.nuget\\packages\\",
-        "outputPath": "D:\\source\\src\\Abstraction\\obj\\",
+        "outputPath": "D:\\source\\src\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\MinhThanh\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,6 +39,22 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
