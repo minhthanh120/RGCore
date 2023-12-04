@@ -5,7 +5,9 @@ using Microsoft.Extensions.DependencyInjection;
 
 ServiceCollection services = new ServiceCollection();
 services.AddScoped<ICoreService, ServiceA>();
+
 var serviceProvider = services.BuildServiceProvider();
 var currentService = serviceProvider.GetService<ICoreService>();
+
 currentService.Run();
 Console.WriteLine("Hello, World!");

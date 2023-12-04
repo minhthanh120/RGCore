@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\source\\src\\Domain\\Domain.csproj": {}
+    "D:\\source\\RGCore\\src\\Domain\\Domain.csproj": {}
   },
   "projects": {
-    "D:\\source\\src\\Domain\\Domain.csproj": {
+    "D:\\source\\RGCore\\src\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\source\\src\\Domain\\Domain.csproj",
+        "projectUniqueName": "D:\\source\\RGCore\\src\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "D:\\source\\src\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\MinhThanh\\.nuget\\packages\\",
-        "outputPath": "D:\\source\\src\\Domain\\obj\\",
+        "projectPath": "D:\\source\\RGCore\\src\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\thanhlm1\\.nuget\\packages\\",
+        "outputPath": "D:\\source\\RGCore\\src\\Domain\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\MinhThanh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\thanhlm1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -51,6 +55,12 @@
               "version": "[8.0.0, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.0, )"
             }

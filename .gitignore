@@ -1,4 +1,6 @@
 /.vs
-/bin/Debug/net8.0
-/obj.Debug/net8.0
-/bin/Debug/net8.0/Abstraction.dll
+bin/Debug/net8.0/
+obj/Debug/net8.0/
+bin/Debug/net8.0/
+src/Abstraction/bin/Debug/net8.0/
+src/Abstraction/bin/Debug/net8.0/

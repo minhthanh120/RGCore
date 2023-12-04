@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\source\\src\\Implementation\\Implementation.csproj": {}
+    "D:\\source\\RGCore\\src\\Implementation\\Implementation.csproj": {}
   },
   "projects": {
-    "D:\\source\\src\\Abstraction\\Abstraction.csproj": {
+    "D:\\source\\RGCore\\src\\Abstraction\\Abstraction.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\source\\src\\Abstraction\\Abstraction.csproj",
+        "projectUniqueName": "D:\\source\\RGCore\\src\\Abstraction\\Abstraction.csproj",
         "projectName": "Abstraction",
-        "projectPath": "D:\\source\\src\\Abstraction\\Abstraction.csproj",
-        "packagesPath": "C:\\Users\\MinhThanh\\.nuget\\packages\\",
-        "outputPath": "D:\\source\\src\\Abstraction\\obj\\",
+        "projectPath": "D:\\source\\RGCore\\src\\Abstraction\\Abstraction.csproj",
+        "packagesPath": "C:\\Users\\thanhlm1\\.nuget\\packages\\",
+        "outputPath": "D:\\source\\RGCore\\src\\Abstraction\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\MinhThanh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\thanhlm1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -27,7 +31,11 @@
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "D:\\source\\RGCore\\src\\Domain\\Domain.csproj": {
+                "projectPath": "D:\\source\\RGCore\\src\\Domain\\Domain.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -59,17 +67,21 @@
         }
       }
     },
-    "D:\\source\\src\\Domain\\Domain.csproj": {
+    "D:\\source\\RGCore\\src\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\source\\src\\Domain\\Domain.csproj",
+        "projectUniqueName": "D:\\source\\RGCore\\src\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "D:\\source\\src\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\MinhThanh\\.nuget\\packages\\",
-        "outputPath": "D:\\source\\src\\Domain\\obj\\",
+        "projectPath": "D:\\source\\RGCore\\src\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\thanhlm1\\.nuget\\packages\\",
+        "outputPath": "D:\\source\\RGCore\\src\\Domain\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\MinhThanh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\thanhlm1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -108,6 +120,12 @@
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[8.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )"
             }
           },
           "imports": [
@@ -130,17 +148,21 @@
         }
       }
     },
-    "D:\\source\\src\\Implementation\\Implementation.csproj": {
+    "D:\\source\\RGCore\\src\\Implementation\\Implementation.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\source\\src\\Implementation\\Implementation.csproj",
+        "projectUniqueName": "D:\\source\\RGCore\\src\\Implementation\\Implementation.csproj",
         "projectName": "Implementation",
-        "projectPath": "D:\\source\\src\\Implementation\\Implementation.csproj",
-        "packagesPath": "C:\\Users\\MinhThanh\\.nuget\\packages\\",
-        "outputPath": "D:\\source\\src\\Implementation\\obj\\",
+        "projectPath": "D:\\source\\RGCore\\src\\Implementation\\Implementation.csproj",
+        "packagesPath": "C:\\Users\\thanhlm1\\.nuget\\packages\\",
+        "outputPath": "D:\\source\\RGCore\\src\\Implementation\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\MinhThanh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\thanhlm1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -154,11 +176,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\source\\src\\Abstraction\\Abstraction.csproj": {
-                "projectPath": "D:\\source\\src\\Abstraction\\Abstraction.csproj"
-              },
-              "D:\\source\\src\\Domain\\Domain.csproj": {
-                "projectPath": "D:\\source\\src\\Domain\\Domain.csproj"
+              "D:\\source\\RGCore\\src\\Abstraction\\Abstraction.csproj": {
+                "projectPath": "D:\\source\\RGCore\\src\\Abstraction\\Abstraction.csproj"
               }
             }
           }

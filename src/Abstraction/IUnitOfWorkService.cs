@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Abstraction.IRepositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,9 @@ namespace Abstraction
 {
     public interface IUnitOfWorkService
     {
+        public Task SaveChanges();
+        IMessageRepository Message {  get; set; }
+        IGroupRepository Group { get; set; }
+        IJoinedRepository Joined { get; set; }
     }
 }

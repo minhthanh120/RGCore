@@ -1,17 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Domain.Models.Chat
 {
+    [Table("Joined")]
     public class Joined
     {
-        [Key]
+        [Required]
         public string IDUser { get; set; }
-        [Key]
+        [Required]
         public string IDGroup { get; set; }
         public string Role { get; set; }
         public DateTime Created { get; set; }
