@@ -1,5 +1,7 @@
 ﻿using Abstraction;
+using Abstraction.IServices;
 using Domain.Models.Chat;
+using Helper;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -10,42 +12,33 @@ namespace API.Controllers
     [ApiController]
     public class GroupController : ControllerBase
     {
-        private readonly IUnitOfWorkService _unitOfWorkService;
-        public GroupController(IUnitOfWorkService unitOfWorkService)
+        //private readonly IUnitOfWorkService _unitOfWorkService;
+        private readonly IGroupService _groupService;
+        public GroupController(IGroupService groupService)
         {
-            _unitOfWorkService = unitOfWorkService;
+            _groupService = groupService;
         }
-        // GET: api/<GroupController>
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
+
 
         // GET api/<GroupController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public async Task<Group> Get(string id)
         {
-            return "value";
+            return await _groupService.GetByID(id);
         }
 
         // POST api/<GroupController>
         [HttpPost]
-        public async Task<Group> Post(Group model)
+        public async Task<ServiceResult> Create(Group model)
         {
-            return await _unitOfWorkService.Group.Create(model);
-        }
-
-        // PUT api/<GroupController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
+            return await _groupService.Create(model);
         }
 
         // DELETE api/<GroupController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<ServiceResult> Delete(string id)
         {
+            return await _groupService.Delete(id);
         }
     }
 }

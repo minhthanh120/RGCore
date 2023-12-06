@@ -13,5 +13,7 @@ namespace Abstraction
         IMessageRepository Message {  get; set; }
         IGroupRepository Group { get; set; }
         IJoinedRepository Joined { get; set; }
+        IUserRepository User { get; set; }
+        IAuthRepository Auth { get; set; }
     }
 }

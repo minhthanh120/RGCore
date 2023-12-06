@@ -14,17 +14,23 @@ namespace Implementation
         public UnitOfWorkService(CoreContext context,
             IMessageRepository messageRepository,
             IGroupRepository groupRepository,
-            IJoinedRepository joinedRepository)
+            IJoinedRepository joinedRepository,
+            IUserRepository user,
+            IAuthRepository auth)
         {
             _context = context;
             Message = messageRepository;
             Group = groupRepository;
             Joined = joinedRepository;
+            User = user;
+            Auth = auth;
         }
 
         public IMessageRepository Message { get; set; }
         public IGroupRepository Group { get; set; }
         public IJoinedRepository Joined {  get; set; }
+        public IUserRepository User { get; set; }
+        public IAuthRepository Auth { get; set; }
         public async Task SaveChanges()
         {
             await _context.SaveChangesAsync();

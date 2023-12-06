@@ -1,4 +1,4 @@
-﻿using Domain.Models.Chat;
+﻿using Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Abstraction.IRepositories
 {
-    public interface IJoinedRepository:IGenericRepository<Joined>
+    public interface IAuthRepository:IGenericRepository<Auth>
     {
-        Task<IEnumerable<Joined>> GetJoinedsByIDGroup(string iDGroup);
+        Task<Auth> GetByIDUser(string IDUser);
     }
 }

@@ -10,5 +10,6 @@ namespace Abstraction.IRepositories
     public interface IGroupRepository:IGenericRepository<Group>
     {
         Task<IEnumerable<Group>> GetAllByJoined();
+
     }
 }

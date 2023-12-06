@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,5 +13,7 @@ namespace Abstraction.IRepositories
         Task<T> Delete(T entity);
         Task<T> GetByID(string ID);
         Task<IEnumerable<T>> GetAll();
+        Task<IEnumerable<T>> Search(Expression<Func<T, bool>> predicate);
+        Task<IQueryable<T>> Query(Expression<Func<T, bool>> predicate);
     }
 }

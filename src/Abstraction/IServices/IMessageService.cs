@@ -1,4 +1,5 @@
 ﻿using Domain.Models.Chat;
+using Helper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,9 @@ namespace Abstraction.IServices
 {
     public interface IMessageService
     {
-        Task<Message> Create(Message model);
-
+        Task<ServiceResult> Create(Message model);
+        Task<ServiceResult> Update(Message model);
+        Task<ServiceResult> Delete(string ID);
+        Task<IEnumerable<Message>> Search(string searchkey);
     }
 }

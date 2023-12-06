@@ -1,6 +1,7 @@
 ﻿using Abstraction.IRepositories;
 using Domain.Contexts;
 using Domain.Models.Chat;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,9 +16,9 @@ namespace Implementation.Repositories
         {
             
         }
-        public async Task<IEnumerable<Joined>> GetJoinedsByIDGroup()
+        public async Task<IEnumerable<Joined>> GetJoinedsByIDGroup(string iDGroup)
         {
-            throw new NotImplementedException();
+            return await _context.Joineds.Where(j => j.IDGroup == iDGroup).ToListAsync();
         }
     }
 }

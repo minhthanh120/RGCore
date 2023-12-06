@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -29,7 +30,21 @@ namespace Implementation.Repositories
             return await _context.Set<T>().FindAsync(ID);
         }
         public async Task<IEnumerable<T>> GetAll() {
-            return await _context.Set<T>().ToListAsync();
+            return await _context.Set<T>()
+                .AsNoTracking()
+                .ToListAsync();
+        }
+
+        public async Task<IEnumerable<T>> Search(Expression<Func<T, bool>> predicate)
+        {
+            return await _context.Set<T>().Where(predicate)
+                .AsNoTracking()
+                .ToListAsync();
+        }
+
+        public async Task<IQueryable<T>> Query(Expression<Func<T, bool>> predicate)
+        {
+            return _context.Set<T>().Where(predicate);
         }
     }
 }

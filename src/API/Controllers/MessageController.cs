@@ -1,6 +1,7 @@
 ﻿using Abstraction;
 using Abstraction.IServices;
 using Domain.Models.Chat;
+using Helper;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -30,25 +31,33 @@ namespace API.Controllers
         {
             return "value";
         }
+        // GET api/<MessageController>/seachKey?
+        [HttpGet("{searchKey}")]
+        public async Task<IEnumerable<Message>> Search(string searchKey)
+        {
+            return await _messageService.Search(searchKey);
+        }
 
         // POST api/<MessageController>
         [HttpPost]
-        public async Task<Message> Post(Message model)
+        public async Task<ServiceResult> Create(Message model)
         {
             model.ID = null;
             return await _messageService.Create(model);
         }
 
         // PUT api/<MessageController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPost]
+        public async Task<ServiceResult> Update(Message model)
         {
+            return await _messageService.Update(model);
         }
 
         // DELETE api/<MessageController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<ServiceResult> Delete(string id)
         {
+            return await _messageService.Delete(id);
         }
     }
 }
