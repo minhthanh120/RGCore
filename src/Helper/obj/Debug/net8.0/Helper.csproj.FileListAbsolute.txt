@@ -1,0 +1,12 @@
+D:\source\RGCore\src\Helper\bin\Debug\net8.0\Helper.deps.json
+D:\source\RGCore\src\Helper\bin\Debug\net8.0\Helper.dll
+D:\source\RGCore\src\Helper\bin\Debug\net8.0\Helper.pdb
+D:\source\RGCore\src\Helper\obj\Debug\net8.0\Helper.GeneratedMSBuildEditorConfig.editorconfig
+D:\source\RGCore\src\Helper\obj\Debug\net8.0\Helper.AssemblyInfoInputs.cache
+D:\source\RGCore\src\Helper\obj\Debug\net8.0\Helper.AssemblyInfo.cs
+D:\source\RGCore\src\Helper\obj\Debug\net8.0\Helper.csproj.CoreCompileInputs.cache
+D:\source\RGCore\src\Helper\obj\Debug\net8.0\Helper.sourcelink.json
+D:\source\RGCore\src\Helper\obj\Debug\net8.0\Helper.dll
+D:\source\RGCore\src\Helper\obj\Debug\net8.0\refint\Helper.dll
+D:\source\RGCore\src\Helper\obj\Debug\net8.0\Helper.pdb
+D:\source\RGCore\src\Helper\obj\Debug\net8.0\ref\Helper.dll
