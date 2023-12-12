@@ -27,6 +27,11 @@ namespace Implementation.Services
         {
             try
             {
+                if (string.IsNullOrEmpty(model.ID))
+                {
+                    model.ID = null;
+                }
+                model.Created = DateTime.Now;
                 await _uowService.Message.Create(model);
                 await _uowService.SaveChanges();
                 return new SuccessResult();

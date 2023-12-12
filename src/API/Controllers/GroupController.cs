@@ -1,6 +1,8 @@
 ﻿using Abstraction;
 using Abstraction.IServices;
+using AutoMapper;
 using Domain.Models.Chat;
+using Domain.ViewModels;
 using Helper;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,14 +10,17 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class GroupController : ControllerBase
     {
         //private readonly IUnitOfWorkService _unitOfWorkService;
         private readonly IGroupService _groupService;
-        public GroupController(IGroupService groupService)
+        private readonly IMapper _mapper;
+        public GroupController(IGroupService groupService,
+            IMapper mapper)
         {
+            _mapper = mapper;
             _groupService = groupService;
         }
 
@@ -29,9 +34,10 @@ namespace API.Controllers
 
         // POST api/<GroupController>
         [HttpPost]
-        public async Task<ServiceResult> Create(Group model)
+        public async Task<ServiceResult> Create(GroupView model)
         {
-            return await _groupService.Create(model);
+            var obj = _mapper.Map<Group>(model);
+            return await _groupService.Create(obj);
         }
 
         // DELETE api/<GroupController>/5

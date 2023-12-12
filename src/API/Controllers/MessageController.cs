@@ -1,6 +1,8 @@
 ﻿using Abstraction;
 using Abstraction.IServices;
+using AutoMapper;
 using Domain.Models.Chat;
+using Domain.ViewModels;
 using Helper;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,8 +16,12 @@ namespace API.Controllers
     {
         private readonly IMessageService _messageService;
         //private readonly IMessa unitOfWorkService;
-        public MessageController(IMessageService messageService)
+        private readonly IMapper _mapper;
+
+        public MessageController(IMessageService messageService,
+            IMapper mapper)
         {
+            _mapper = mapper;
             _messageService = messageService;
         }
         // GET: api/<MessageController>
@@ -40,17 +46,18 @@ namespace API.Controllers
 
         // POST api/<MessageController>
         [HttpPost]
-        public async Task<ServiceResult> Create(Message model)
+        public async Task<ServiceResult> Create(MessageView model)
         {
-            model.ID = null;
-            return await _messageService.Create(model);
+            var obj = _mapper.Map<Message>(model);
+            return await _messageService.Create(obj);
         }
 
         // PUT api/<MessageController>/5
         [HttpPost]
-        public async Task<ServiceResult> Update(Message model)
+        public async Task<ServiceResult> Update(MessageView model)
         {
-            return await _messageService.Update(model);
+            var obj = _mapper.Map<Message>(model);
+            return await _messageService.Update(obj);
         }
 
         // DELETE api/<MessageController>/5

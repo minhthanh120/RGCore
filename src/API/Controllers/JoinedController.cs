@@ -1,5 +1,6 @@
 ﻿using Abstraction;
 using Abstraction.IServices;
+using AutoMapper;
 using Helper;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,14 +8,17 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class JoinedController : ControllerBase
     {
         //private readonly IUnitOfWorkService _unitOfWorkService;
         private readonly IJoinedService _joinedService;
-        public JoinedController(IJoinedService joinedService)
+        private readonly IMapper _mapper;
+
+        public JoinedController(IJoinedService joinedService, IMapper mapper)
         {
+            _mapper = mapper;
             _joinedService = joinedService;
         }
 

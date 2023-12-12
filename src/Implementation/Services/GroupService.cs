@@ -25,6 +25,10 @@ namespace Implementation.Services
         {
             try
             {
+                if (string.IsNullOrEmpty(model.ID))
+                {
+                    model.ID = null;
+                }
                 await _uowService.Group.Create(model);
                 await _uowService.SaveChanges();
                 return new SuccessResult();
