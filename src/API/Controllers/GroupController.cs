@@ -40,5 +40,18 @@ namespace API.Controllers
         {
             return await _groupService.Delete(id);
         }
+        [HttpGet("{searchkey}")]
+        public async Task<IActionResult> Search(string searchkey)
+        {
+            if(!string.IsNullOrEmpty(searchkey))
+            {
+                var result = await _groupService.Search(searchkey);
+                if (result != null)
+                {
+                    return Ok(result);
+                }
+            }
+            return BadRequest();
+        }
     }
 }

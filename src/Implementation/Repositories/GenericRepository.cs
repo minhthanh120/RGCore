@@ -7,7 +7,8 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-
+using EFCore.BulkExtensions;
+using Helper;
 namespace Implementation.Repositories
 {
     public class GenericRepository<T> :IGenericRepository<T> where T : class
@@ -45,6 +46,18 @@ namespace Implementation.Repositories
         public async Task<IQueryable<T>> Query(Expression<Func<T, bool>> predicate)
         {
             return _context.Set<T>().Where(predicate);
+        }
+
+        public async Task<ServiceResult> Inserts(IEnumerable<T> entities)
+        {
+            await _context.BulkInsertAsync<T>(entities);
+            return new SuccessResult();
+        }
+
+        public async Task<ServiceResult> Removes(IEnumerable<T> entities)
+        {
+            await _context.BulkDeleteAsync<T>(entities);
+            return new SuccessResult();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Helper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -12,6 +13,8 @@ namespace Abstraction.IRepositories
         Task<T> Create(T entity);
         Task<T> Delete(T entity);
         Task<T> GetByID(string ID);
+        Task<ServiceResult> Inserts(IEnumerable<T> entity);
+        Task<ServiceResult> Removes(IEnumerable<T> entity);
         Task<IEnumerable<T>> GetAll();
         Task<IEnumerable<T>> Search(Expression<Func<T, bool>> predicate);
         Task<IQueryable<T>> Query(Expression<Func<T, bool>> predicate);

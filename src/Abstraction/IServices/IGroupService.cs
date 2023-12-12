@@ -15,6 +15,7 @@ namespace Abstraction.IServices
         Task<ServiceResult> Delete(string IDGroup);
         Task<Group> GetByID(string IDGroup);
         Task<IEnumerable<Group>> GetGroupJoined();
+        Task<IEnumerable<Group>> Search(string searchkey);
 
     }
 }

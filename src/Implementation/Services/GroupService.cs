@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Implementation.Services
 {
-    public class GroupService:IGroupService
+    public class GroupService : IGroupService
     {
         private readonly IUnitOfWorkService _uowService;
         private readonly ILogger<GroupService> _logger;
@@ -104,6 +104,21 @@ namespace Implementation.Services
             {
                 _logger.LogError(ex.Message, ex);
                 return new Group();
+            }
+        }
+
+        public async Task<IEnumerable<Group>> Search(string searchkey)
+        {
+            try
+            {
+                return await _uowService.Group.Search(g => g.Name.ToLower()
+                .Contains(searchkey.ToLower())
+                );
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message, ex);
+                return null;
             }
         }
 
