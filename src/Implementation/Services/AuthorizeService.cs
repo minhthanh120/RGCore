@@ -7,15 +7,18 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-
+using static Helper.Helper;
 namespace Implementation.Services
 {
-    public class AuthorizeService:IAuthorizeService
+    public class AuthorizeService : IAuthorizeService
     {
         private readonly IUnitOfWorkService _unitOfWork;
         private readonly IUserService _userService;
+
+
         public AuthorizeService(IUnitOfWorkService unitOfWork, IUserService userService)
         {
             _unitOfWork = unitOfWork;
@@ -30,8 +33,14 @@ namespace Implementation.Services
             {
                 return new User();
             }
+            
             var auth = await _unitOfWork.Auth.GetByIDUser(user.ID);
             if (auth == null)
+            {
+                return new User();
+            }
+            var validPwd = VerifyPassword(form.Password, auth.Password, auth.Salt);
+            if (!validPwd)
             {
                 return new User();
             }
@@ -40,7 +49,7 @@ namespace Implementation.Services
         public async Task<User> Register(RegisterForm form)
         {
             var isExisted = await _unitOfWork.User
-                .Query(u=>u.UserName == form.UserName || u.Email== u.Email)
+                .Query(u => u.UserName == form.UserName || u.Email == u.Email)
                 .Result
                 .AnyAsync();
             if (isExisted)
@@ -62,14 +71,20 @@ namespace Implementation.Services
         }
         public async Task<ServiceResult> Create(string IDUser, string Password)
         {
+            byte[] salt = Encoding.UTF8.GetBytes(IDUser);
+            string password = HashPasword(Password, out salt);
             Auth auth = new Auth()
             {
                 IDUser = IDUser,
-                Password = Password,
+                Password = password,
                 Created = DateTime.Now,
+                Salt = salt,
             };
             await _unitOfWork.Auth.Create(auth);
+            await _unitOfWork.SaveChanges();
             return new SuccessResult();
         }
+
+        
     }
 }

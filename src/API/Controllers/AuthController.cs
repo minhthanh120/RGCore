@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class AuthController : ControllerBase
     {
@@ -18,8 +18,13 @@ namespace API.Controllers
             _jwtService = jwtService;
 
         }
-        public async Task<IActionResult> Login(LoginForm form)
+        [HttpPost]
+        public async Task<ActionResult> Login(LoginForm form)
         {
+            var currentUser = await _authorizeService.Login(form);
+            if (string.IsNullOrEmpty(currentUser.ID)) {
+                return BadRequest("Invalid credentials");
+            }
             var result = await _jwtService.CreateToken(form);
             if (string.IsNullOrEmpty(result))
             {
@@ -27,7 +32,8 @@ namespace API.Controllers
             }
             return Ok(result);
         }
-        public async Task<IActionResult> Register(RegisterForm form)
+        [HttpPost]
+        public async Task<ActionResult> Register(RegisterForm form)
         {
             await _authorizeService.Register(form);
             return Ok();

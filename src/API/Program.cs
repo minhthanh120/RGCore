@@ -34,6 +34,8 @@ builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IAuthRepository, AuthRepository>();
 builder.Services.AddScoped<IAuthorizeService, AuthorizeService>();
 
+builder.Services.AddScoped<IJwtService, JwtService>();
+
 
 builder.Services.AddScoped<IUnitOfWorkService, UnitOfWorkService>();
 
@@ -52,6 +54,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
     };
 });
 
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -64,5 +67,6 @@ if (app.Environment.IsDevelopment())
 app.UseAuthorization();
 app.UseAuthentication();
 app.MapControllers();
+app.MapSwagger().RequireAuthorization();
 
 app.Run();

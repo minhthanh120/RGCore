@@ -16,7 +16,7 @@ namespace Domain.Models
         public int ID { get; set; }
         public string IDUser { get; set; }
         public string Password { get; set; }
-        public string Salt { get; set; }
+        public byte[] Salt { get; set; }
         public DateTime Created { get; set; } = DateTime.Now;
     }
 }

@@ -38,6 +38,7 @@ namespace Implementation.Services
             {
                 return string.Empty;
             }
+
             var auth = await _unitOfWork.Auth.GetByIDUser(user.ID);
             if (auth == null)
             {
