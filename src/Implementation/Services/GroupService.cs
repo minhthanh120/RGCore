@@ -2,6 +2,7 @@
 using Abstraction.IServices;
 using Domain.Models.Chat;
 using Helper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -15,10 +16,14 @@ namespace Implementation.Services
     {
         private readonly IUnitOfWorkService _uowService;
         private readonly ILogger<GroupService> _logger;
-        public GroupService(IUnitOfWorkService uowService, ILogger<GroupService> logger)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        public GroupService(IUnitOfWorkService uowService,
+            IHttpContextAccessor httpContextAccessor,
+            ILogger<GroupService> logger)
         {
             _uowService = uowService;
             _logger = logger;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         public async Task<ServiceResult> Create(Group model)

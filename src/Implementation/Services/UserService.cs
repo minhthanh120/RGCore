@@ -60,6 +60,21 @@ namespace Implementation.Services
             }
         }
 
+        public async Task<IEnumerable<User>> SearchbyEmail(string email)
+        {
+            try
+            {
+                return await _unitOfWork.User.Search(
+                    u=>u.Email.ToLower()
+                    .Contains(email.ToLower()));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message, ex);
+                return null;
+            }
+        }
+
         public async Task<UserView> Update(UserView model)
         {
             try

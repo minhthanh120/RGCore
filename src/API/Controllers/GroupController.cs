@@ -4,7 +4,9 @@ using AutoMapper;
 using Domain.Models.Chat;
 using Domain.ViewModels;
 using Helper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -39,7 +41,14 @@ namespace API.Controllers
             var obj = _mapper.Map<Group>(model);
             return await _groupService.Create(obj);
         }
-
+        // POST api/<GroupController>
+        [HttpPost]
+        [Authorize]
+        public async Task<ServiceResult> Update(GroupView model)
+        {
+            var obj = _mapper.Map<Group>(model);
+            return await _groupService.Update(obj);
+        }
         // DELETE api/<GroupController>/5
         [HttpDelete("{id}")]
         public async Task<ServiceResult> Delete(string id)

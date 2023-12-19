@@ -4,6 +4,7 @@ using Domain.Models;
 using Domain.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Routing;
 using System.Security.Claims;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -25,6 +26,7 @@ namespace API.Controllers
         // GET: api/<UserController>
         [HttpGet]
         [Authorize]
+        [Route("~/api/[controller]")]
         public async Task<IActionResult> Get()
         {
             string userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
@@ -36,10 +38,13 @@ namespace API.Controllers
         }
 
         // GET api/<UserController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet("{searchKey}")]
+        public async Task<IActionResult> searchbyEmail(string searchKey)
         {
-            return "value";
+            var result = await _userService.SearchbyEmail(searchKey);
+            if (result == null)
+                return BadRequest();
+            return Ok(result);
         }
 
         // POST api/<UserController>
