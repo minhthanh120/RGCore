@@ -10,7 +10,7 @@ using System.Security.Claims;
 
 namespace API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class UserController : ControllerBase
     {
@@ -31,8 +31,8 @@ namespace API.Controllers
             if (string.IsNullOrEmpty(userId))
                 return BadRequest("Invalid credentials");
             var user = await _userService.GetUserbyID(userId);
-            _mapper.Map<UserView>(user);
-            return Ok();
+            var result = _mapper.Map<UserView>(user);
+            return Ok(result);
         }
 
         // GET api/<UserController>/5
