@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Domain.Models;
 using Domain.Models.Chat;
 using Domain.ViewModels;
 using System;
@@ -21,6 +22,9 @@ namespace Helper
 
             CreateMap<Joined, JoinedView>();
             CreateMap<JoinedView, Joined>();
+
+            CreateMap<User, UserView>();
+            CreateMap<UserView, User>();
         }
     }
 }

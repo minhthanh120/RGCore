@@ -9,13 +9,14 @@ using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Implementation.Services
 {
 
-    public class JwtService:IJwtService
+    public class JwtService : IJwtService
     {
         private readonly IUserService _userService;
         private readonly IAuthorizeService _authService;
@@ -46,22 +47,24 @@ namespace Implementation.Services
             }
             var claims = new[]
             {
-                new Claim(JwtRegisteredClaimNames.Sub, _configuration["Jwt:Subject"]),
-                        new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                        new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString()),
-                        new Claim("UserId", user.ID.ToString()),
-                        new Claim("DisplayName", string.Join(" ", user.FirstName, user.MiddleName, user.LastName)),
-                        new Claim("UserName", user.UserName),
-                        new Claim("Email", user.Email)
+                //new Claim(JwtRegisteredClaimNames.Sub, _configuration["Jwt:Subject"]),
+                //new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                //new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString()),
+
+                new Claim(ClaimTypes.NameIdentifier, user.ID.ToString()),
+                new Claim(ClaimTypes.Name, string.Join(" ", user.FirstName, user.MiddleName, user.LastName)),
+                new Claim("UserName", user.UserName),
+                new Claim(ClaimTypes.Email, user.Email),
             };
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
-            var signIn = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
+            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+
             var token = new JwtSecurityToken(
                 _configuration["Jwt:Issuer"],
                 _configuration["Jwt:Audience"],
                 claims,
-                expires: DateTime.UtcNow.AddMinutes(10),
-                signingCredentials: signIn);
+                expires: DateTime.UtcNow.AddDays(1),
+                signingCredentials: credentials);
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
     }

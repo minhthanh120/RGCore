@@ -49,7 +49,7 @@ namespace Implementation.Services
         public async Task<User> Register(RegisterForm form)
         {
             var isExisted = await _unitOfWork.User
-                .Query(u => u.UserName == form.UserName || u.Email == u.Email)
+                .Query(u => u.UserName == form.UserName || u.Email == form.Email)
                 .Result
                 .AnyAsync();
             if (isExisted)
