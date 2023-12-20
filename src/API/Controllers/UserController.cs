@@ -46,6 +46,14 @@ namespace API.Controllers
                 return BadRequest();
             return Ok(result);
         }
+        [HttpGet("{searchKey}")]
+        public async Task<IActionResult> searchUser(string searchKey)
+        {
+            var result = await _userService.Search(searchKey);
+            if (result == null)
+                return BadRequest();
+            return Ok(result);
+        }
 
         // POST api/<UserController>
         [HttpPost]

@@ -14,5 +14,6 @@ namespace Abstraction.IServices
         Task<User> GetUserbyID(string idUser);
         Task<UserView> Update(UserView model);
         Task<IEnumerable<User>> SearchbyEmail(string email);
+        Task<IEnumerable<User>> Search(string email);
     }
 }

@@ -35,8 +35,8 @@ namespace API.Controllers
         }
 
         // POST api/<GroupController>
-        [HttpPost]
-        public async Task<ServiceResult> Create(GroupView model)
+        [HttpPut]
+        public async Task<ServiceResult> Create(GroupView model, IEnumerable<UserView>? users)
         {
             var obj = _mapper.Map<Group>(model);
             return await _groupService.Create(obj);

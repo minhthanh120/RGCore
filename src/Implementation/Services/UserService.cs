@@ -60,6 +60,24 @@ namespace Implementation.Services
             }
         }
 
+        public async Task<IEnumerable<User>> Search(string searchkey)
+        {
+            try
+            {
+                searchkey = searchkey.ToLower();
+                return await _unitOfWork.User.Search(
+                    u => u.Email.ToLower()
+                    .Contains(searchkey)
+                    || u.UserName.ToLower().Contains(searchkey)
+                    || (u.FirstName + u.MiddleName + u.LastName).ToLower().Contains(searchkey));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message, ex);
+                return null;
+            }
+        }
+
         public async Task<IEnumerable<User>> SearchbyEmail(string email)
         {
             try
